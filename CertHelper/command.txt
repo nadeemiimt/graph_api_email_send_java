@@ -1,0 +1,27 @@
+$automationAccount = 'EmailSender' 
+ $certExpiryMonths = 24
+ $certPfxPassword = '789789'
+ $certExportPath = 'C:\Data\certificate'
+ $resourceGroup = 'azAutomation-rg'
+ $location = "East Us"
+    
+ $certPassword = ConvertTo-SecureString $certPfxPassword -AsPlainText -Force
+    
+    
+ #Generate SSL certificate
+ Write-Host "Generate self signed certificate for - $automationAccount"
+ $selfSignedCertSplat = @{
+     DnsName = $automationAccount
+     Subject = $automationAccount
+     CertStoreLocation = 'cert:\CurrentUser\My' 
+     KeyExportPolicy = 'Exportable'
+     Provider = 'Microsoft Enhanced RSA and AES Cryptographic Provider'
+     NotAfter = (Get-Date).AddMonths($certExpiryMonths) 
+     HashAlgorithm = 'SHA256'
+ }
+ $selfSignedCert = New-SelfSignedCertificate @selfSignedCertSplat
+    
+ #Export SSL certificate to file
+ Write-Host "Export self signed certificate to folder - $certExportPath"
+ $certThumbPrint = 'cert:\CurrentUser\My\' + $selfSignedCert.Thumbprint
+ Export-Certificate -Cert $certThumbPrint -FilePath "$certExportPath\$automationAccount.cer" -Type CERT | Write-Verbose

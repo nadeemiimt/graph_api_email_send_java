@@ -1,0 +1,11 @@
+https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent
+
+https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-java-daemon
+
+
+
+https://techjatinder.medium.com/send-email-using-microsoft-graph-api-using-c-a838d128bb27
+https://techjatinder.medium.com/assign-office-365-license-to-your-registered-app-in-microsoft-azure-c7f6f3a18ca
+https://techjatinder.medium.com/c-code-to-to-send-emails-using-microsoft-graph-api-2a90da6d648a
+
+https://www.postman.com/microsoftgraph/workspace/microsoft-graph/overview

@@ -1,0 +1,1 @@
+keytool -importcert -alias baeldung_public_cert -file baeldung.cer -keystore sample_keystore
